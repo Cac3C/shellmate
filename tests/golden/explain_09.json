@@ -1,0 +1,20 @@
+{
+  "command": "cat /etc/passwd > /tmp/users.txt",
+  "segments": [
+    {
+      "program": "cat",
+      "options": [],
+      "args": [
+        "/etc/passwd"
+      ],
+      "inner": null
+    }
+  ],
+  "operators": [
+    ">"
+  ],
+  "targets": [
+    "/tmp/users.txt"
+  ],
+  "risk": "safe"
+}

@@ -1,0 +1,26 @@
+{
+  "command": "ps aux | grep nginx",
+  "segments": [
+    {
+      "program": "ps",
+      "options": [],
+      "args": [
+        "aux"
+      ],
+      "inner": null
+    },
+    {
+      "program": "grep",
+      "options": [],
+      "args": [
+        "nginx"
+      ],
+      "inner": null
+    }
+  ],
+  "operators": [
+    "|"
+  ],
+  "targets": [],
+  "risk": "safe"
+}

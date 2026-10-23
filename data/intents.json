@@ -1,0 +1,171 @@
+{
+  "version": 1,
+  "description": "ShellMate 离线意图库：关键词用于打分，slots 决定抽取哪些参数，template 渲染命令",
+  "intents": [
+    {
+      "name": "disk_usage",
+      "description": "查看磁盘空间",
+      "keywords": ["磁盘", "空间", "df"],
+      "slots": [],
+      "required": [],
+      "template": "df -h",
+      "risk": "safe",
+      "requires_root": false,
+      "examples": ["查看磁盘使用情况", "磁盘还剩多少空间"]
+    },
+    {
+      "name": "kernel_version",
+      "description": "查看内核版本",
+      "keywords": ["内核版本", "内核", "uname"],
+      "slots": [],
+      "required": [],
+      "template": "uname -r",
+      "risk": "safe",
+      "requires_root": false,
+      "examples": ["查看内核版本", "当前内核是多少"]
+    },
+    {
+      "name": "dir_usage",
+      "description": "查看目录占用大小",
+      "keywords": ["目录大小", "目录占用", "占用", "大小", "du"],
+      "slots": ["path"],
+      "required": [],
+      "template": "du -sh {path}",
+      "risk": "safe",
+      "requires_root": false,
+      "examples": ["查看目录大小", "看看 /var 的占用"]
+    },
+    {
+      "name": "large_files",
+      "description": "查找超过指定大小的文件",
+      "keywords": ["大于", "超过", "大文件"],
+      "slots": ["path", "size"],
+      "required": ["size"],
+      "template": "find {path} -type f -size +{size}",
+      "risk": "safe",
+      "requires_root": false,
+      "examples": ["找出 /var/log 下大于 100M 的文件"]
+    },
+    {
+      "name": "recent_files",
+      "description": "按修改时间查找文件",
+      "keywords": ["天内", "最近修改", "修改过", "修改", "mtime"],
+      "slots": ["path", "pattern", "days"],
+      "required": [],
+      "template": "find {path} -type f -name '{pattern}' -mtime -{days}",
+      "risk": "safe",
+      "requires_root": false,
+      "examples": ["找出 /home 下 7 天内修改的 .c 文件"]
+    },
+    {
+      "name": "find_by_name",
+      "description": "按名称查找文件",
+      "keywords": ["查找", "名为", "find"],
+      "slots": ["path", "pattern"],
+      "required": ["pattern"],
+      "template": "find {path} -type f -name '{pattern}'",
+      "risk": "safe",
+      "requires_root": false,
+      "examples": ["查找 /etc 下名为 sshd_config 的文件"]
+    },
+    {
+      "name": "view_permissions",
+      "description": "查看文件权限",
+      "keywords": ["权限", "查看权限", "ls -l"],
+      "slots": ["path"],
+      "required": [],
+      "template": "ls -ld {path}",
+      "risk": "safe",
+      "requires_root": false,
+      "examples": ["查看 /tmp 的权限"]
+    },
+    {
+      "name": "change_permissions",
+      "description": "修改文件权限",
+      "keywords": ["权限", "改成", "修改权限", "设为", "chmod"],
+      "slots": ["path", "perm"],
+      "required": ["perm"],
+      "template": "chmod {perm} {path}",
+      "risk": "medium",
+      "requires_root": false,
+      "examples": ["把 /tmp/x 权限改成 777"]
+    },
+    {
+      "name": "process_list",
+      "description": "查看进程列表",
+      "keywords": ["进程", "ps"],
+      "slots": [],
+      "required": [],
+      "template": "ps aux",
+      "risk": "safe",
+      "requires_root": false,
+      "examples": ["查看当前进程", "列出所有进程"]
+    },
+    {
+      "name": "kill_process",
+      "description": "结束指定进程",
+      "keywords": ["结束进程", "杀掉", "kill", "进程"],
+      "slots": ["pid"],
+      "required": ["pid"],
+      "template": "kill -9 {pid}",
+      "risk": "high",
+      "requires_root": false,
+      "examples": ["结束进程 1234"]
+    },
+    {
+      "name": "service_status",
+      "description": "查看 systemd 服务状态",
+      "keywords": ["服务状态", "服务", "systemctl"],
+      "slots": ["service"],
+      "required": ["service"],
+      "template": "systemctl status {service}",
+      "risk": "low",
+      "requires_root": false,
+      "examples": ["查看 ssh 服务状态"]
+    },
+    {
+      "name": "user_info",
+      "description": "查看用户信息",
+      "keywords": ["用户", "id"],
+      "slots": ["user"],
+      "required": ["user"],
+      "template": "id {user}",
+      "risk": "safe",
+      "requires_root": false,
+      "examples": ["查看用户 alice"]
+    },
+    {
+      "name": "log_errors",
+      "description": "查看系统错误日志",
+      "keywords": ["日志", "报错", "错误", "error"],
+      "slots": [],
+      "required": [],
+      "template": "journalctl -p err -n 50",
+      "risk": "safe",
+      "requires_root": false,
+      "examples": ["查看系统日志错误", "最近的报错"]
+    },
+    {
+      "name": "network_ports",
+      "description": "查看监听端口与网络连接",
+      "keywords": ["端口", "监听", "网络", "连接", "ss"],
+      "slots": [],
+      "required": [],
+      "template": "ss -tulnp",
+      "risk": "safe",
+      "requires_root": false,
+      "examples": ["查看端口监听", "看看网络连接"]
+    },
+    {
+      "name": "clean_build",
+      "description": "清理当前目录的编译产物",
+      "keywords": ["清理", "编译产物", "构建产物", "make clean"],
+      "slots": [],
+      "required": [],
+      "template": "make clean",
+      "risk": "medium",
+      "requires_root": false,
+      "examples": ["清理编译产物", "清理当前目录的构建产物"]
+    }
+  ]
+}

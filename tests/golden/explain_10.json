@@ -1,0 +1,19 @@
+{
+  "command": "tar -czf backup.tar.gz /srv/backup",
+  "segments": [
+    {
+      "program": "tar",
+      "options": [
+        "-czf"
+      ],
+      "args": [
+        "backup.tar.gz",
+        "/srv/backup"
+      ],
+      "inner": null
+    }
+  ],
+  "operators": [],
+  "targets": [],
+  "risk": "medium"
+}

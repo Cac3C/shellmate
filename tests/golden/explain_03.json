@@ -1,0 +1,27 @@
+{
+  "command": "find /var/log -type f -size +100M | xargs rm -f",
+  "segments": [
+    {
+      "program": "find",
+      "options": [
+        "-type f",
+        "-size +100M"
+      ],
+      "args": [
+        "/var/log"
+      ],
+      "inner": null
+    },
+    {
+      "program": "xargs",
+      "options": [],
+      "args": [],
+      "inner": "rm"
+    }
+  ],
+  "operators": [
+    "|"
+  ],
+  "targets": [],
+  "risk": "high"
+}

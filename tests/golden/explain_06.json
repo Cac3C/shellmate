@@ -1,0 +1,17 @@
+{
+  "command": "chmod 755 /tmp/test.sh",
+  "segments": [
+    {
+      "program": "chmod",
+      "options": [],
+      "args": [
+        "755",
+        "/tmp/test.sh"
+      ],
+      "inner": null
+    }
+  ],
+  "operators": [],
+  "targets": [],
+  "risk": "low"
+}

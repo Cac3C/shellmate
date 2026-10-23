@@ -1,0 +1,19 @@
+{
+  "command": "grep -rn \"error\" /var/log/syslog",
+  "segments": [
+    {
+      "program": "grep",
+      "options": [
+        "-rn"
+      ],
+      "args": [
+        "error",
+        "/var/log/syslog"
+      ],
+      "inner": null
+    }
+  ],
+  "operators": [],
+  "targets": [],
+  "risk": "safe"
+}

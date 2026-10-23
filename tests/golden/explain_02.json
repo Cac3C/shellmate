@@ -1,0 +1,19 @@
+{
+  "command": "find /var/log -type f -size +100M",
+  "segments": [
+    {
+      "program": "find",
+      "options": [
+        "-type f",
+        "-size +100M"
+      ],
+      "args": [
+        "/var/log"
+      ],
+      "inner": null
+    }
+  ],
+  "operators": [],
+  "targets": [],
+  "risk": "safe"
+}

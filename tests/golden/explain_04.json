@@ -1,0 +1,28 @@
+{
+  "command": "du -sh /var/log && df -h",
+  "segments": [
+    {
+      "program": "du",
+      "options": [
+        "-sh"
+      ],
+      "args": [
+        "/var/log"
+      ],
+      "inner": null
+    },
+    {
+      "program": "df",
+      "options": [
+        "-h"
+      ],
+      "args": [],
+      "inner": null
+    }
+  ],
+  "operators": [
+    "&&"
+  ],
+  "targets": [],
+  "risk": "safe"
+}

@@ -1,0 +1,18 @@
+{
+  "command": "ls -lh /tmp",
+  "segments": [
+    {
+      "program": "ls",
+      "options": [
+        "-lh"
+      ],
+      "args": [
+        "/tmp"
+      ],
+      "inner": null
+    }
+  ],
+  "operators": [],
+  "targets": [],
+  "risk": "safe"
+}

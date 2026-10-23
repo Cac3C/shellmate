@@ -1,0 +1,17 @@
+{
+  "command": "systemctl status ssh",
+  "segments": [
+    {
+      "program": "systemctl",
+      "options": [],
+      "args": [
+        "status",
+        "ssh"
+      ],
+      "inner": null
+    }
+  ],
+  "operators": [],
+  "targets": [],
+  "risk": "safe"
+}
