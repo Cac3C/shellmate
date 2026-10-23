@@ -18,8 +18,7 @@ step() { printf '\n===== %s =====\n' "$1"; }
 
 step "1. 版本与环境"
 python3 -m shellmate --version
-printf 'kernel: '; uname -r
-printf 'user  : '; whoami
+printf 'python: '; python3 --version
 
 step "2. 自然语言生成命令"
 python3 -m shellmate plan "查看磁盘使用情况" --offline
